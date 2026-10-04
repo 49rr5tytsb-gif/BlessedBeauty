@@ -454,7 +454,9 @@ document.addEventListener("click", function(event) {
   document.getElementById("closeProductModal").onclick = function() {
     modal.remove();
   };
-
+document.getElementById("addToCartButton").onclick = function() {
+  alert("🛒 Producto agregado al carrito");
+};
   modal.addEventListener("click", function(e) {
     if (e.target === modal) {
       modal.remove();
