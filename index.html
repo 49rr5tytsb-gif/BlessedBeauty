@@ -455,6 +455,7 @@ document.addEventListener("click", function(event) {
     modal.remove();
   };
 document.getElementById("addToCartButton").onclick = function() {
+  console.log("BOTON DEL CARRITO FUNCIONA");
   let cart = JSON.parse(localStorage.getItem("blessedBeautyCart")) || [];
 
   const existing = cart.find(item => item.name === name);
