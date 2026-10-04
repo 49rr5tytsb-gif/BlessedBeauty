@@ -455,6 +455,23 @@ document.addEventListener("click", function(event) {
     modal.remove();
   };
 document.getElementById("addToCartButton").onclick = function() {
+  let cart = JSON.parse(localStorage.getItem("blessedBeautyCart")) || [];
+
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      name: name,
+      price: parseFloat(price.replace("$", "")) || 0,
+      image: image,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem("blessedBeautyCart", JSON.stringify(cart));
+
   alert("🛒 Producto agregado al carrito");
 };
   modal.addEventListener("click", function(e) {
