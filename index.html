@@ -1106,6 +1106,29 @@ document.getElementById("publishProductButton").onclick = async function() {
 
   document.body.appendChild(manageModal);
 
+   document.querySelectorAll(".deleteAdminProduct").forEach(button => {
+  button.onclick = async function() {
+    const productId = this.dataset.id;
+
+    const confirmar = confirm("🗑️ ¿Seguro que quieres eliminar este producto?");
+    if (!confirmar) return;
+
+    const { error } = await supabaseClient
+      .from("products")
+      .delete()
+      .eq("id", productId);
+
+    if (error) {
+      alert("❌ No se pudo eliminar: " + error.message);
+      return;
+    }
+
+    alert("💖 Producto eliminado correctamente");
+    manageModal.remove();
+    loadProducts();
+  };
+});
+
   document.getElementById("closeManageProducts").onclick = function() {
     manageModal.remove();
   };
