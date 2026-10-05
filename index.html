@@ -1012,7 +1012,104 @@ document.getElementById("publishProductButton").onclick = async function() {
 };
 
 };
- 
+
+ document.getElementById("manageProductsAdmin").onclick = async function() {
+  const { data: products, error } = await supabaseClient
+    .from("products")
+    .select("*")
+    .order("id", { ascending: false });
+
+  if (error) {
+    alert("❌ No se pudieron cargar los productos: " + error.message);
+    return;
+  }
+
+  const manageModal = document.createElement("div");
+
+  manageModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:40000;
+    padding:20px;
+  `;
+
+  manageModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      max-height:85vh;
+      overflow-y:auto;
+      border-radius:25px;
+      padding:25px;
+    ">
+      <h2 style="text-align:center;color:#d95b91;">
+        📦 Administrar productos
+      </h2>
+
+      <div id="adminProductsList">
+        ${products.length === 0
+          ? "<p>No hay productos.</p>"
+          : products.map(product => `
+            <div style="
+              border:1px solid #f3c4d8;
+              border-radius:18px;
+              padding:12px;
+              margin:12px 0;
+            ">
+              ${product.image_url
+                ? `<img src="${product.image_url}"
+                    style="width:80px;height:80px;object-fit:cover;border-radius:12px;">`
+                : "🛍️"}
+
+              <h3>${product.name}</h3>
+              <strong style="color:#d95b91;">$${product.price}</strong>
+
+              <div style="margin-top:10px;">
+                <button
+                  class="editAdminProduct button"
+                  data-id="${product.id}">
+                  ✏️ Editar
+                </button>
+
+                <button
+                  class="deleteAdminProduct button"
+                  data-id="${product.id}"
+                  style="margin-top:7px;">
+                  🗑️ Eliminar
+                </button>
+              </div>
+            </div>
+          `).join("")}
+      </div>
+
+      <button id="closeManageProducts"
+        style="
+          width:100%;
+          margin-top:15px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cerrar
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(manageModal);
+
+  document.getElementById("closeManageProducts").onclick = function() {
+    manageModal.remove();
+  };
+}; 
   document.getElementById("closeAdminPanel").onclick = function() {
     adminModal.remove();
   };
