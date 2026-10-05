@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8b6d2">
+
+  <title>🎀 Blessed Beauty</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fff7fb;
+      color: #4a3040;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffd8e8, #f8b6d2);
+      padding: 25px 18px;
+      text-align: center;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(120, 60, 90, 0.25);
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 25px 18px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      margin-bottom: 10px;
+      color: #8f4d6d;
+    }
+
+    .hero p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #765667;
+    }
+
+    .faith {
+      margin: 18px auto;
+      background: white;
+      padding: 15px;
+      border-radius: 18px;
+      max-width: 500px;
+      box-shadow: 0 5px 20px rgba(180, 100, 140, 0.10);
+      color: #8f4d6d;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 10px 18px 25px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #8f4d6d;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .category {
+      background: white;
+      padding: 18px 10px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(180, 100, 140, 0.10);
+      font-weight: 600;
+      color: #70445a;
+    }
+
+    .category span {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(180, 100, 140, 0.10);
+    }
+
+    .product-image {
+      height: 150px;
+      background: linear-gradient(135deg, #ffe4ef, #f9c7dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .product-info {
+      padding: 12px;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .price {
+      color: #d65d91;
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .button {
+      display: block;
+      margin-top: 10px;
+      background: #e98bb2;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .custom {
+      margin: 10px 18px 30px;
+      background: linear-gradient(135deg, #f8b6d2, #e98bb2);
+      color: white;
+      padding: 22px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .custom h2 {
+      margin-bottom: 8px;
+    }
+
+    .custom p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .custom button {
+      background: white;
+      color: #c95f8c;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #fce1ec;
+      color: #765667;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://ewxsdbupanflituuiqsm.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_BoFJUqyzMHj90I-md8WfFA_Pa8gCqA_";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+</script></head>
+
+<body>
+
+  <header>
+    <div class="logo">🎀✨ BLESSED BEAUTY ✝️🌷</div>
+    <div class="subtitle">
+      Calidad • Confianza • Seguridad • Fe
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Compra bonito, fácil y con confianza 💖</h1>
+
+    <p>
+      Descubre moda, belleza, accesorios, artículos para el hogar
+      y mucho más.
+    </p>
+
+    <div class="faith">
+      🙏🏻 “Con Dios todo es posible.” ✝️
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🛍️ Categorías</h2>
+
+    <div class="categories">
+
+      <div class="category">
+        <span>👗</span>
+        SHEIN
+      </div>
+
+      <div class="category">
+        <span>💄</span>
+        Maquillaje
+      </div>
+
+      <div class="category">
+        <span>👜</span>
+        Carteras
+      </div>
+
+      <div class="category">
+        <span>💎</span>
+        Accesorios
+      </div>
+
+      <div class="category">
+        <span>🏡</span>
+        Hogar
+      </div>
+
+      <div class="category">
+        <span>📦</span>
+        Encargos
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🛍️ Productos</h2>
+
+    <div id="products-container" class="categories">
+      <p>Cargando productos...</p>
+    </div>
+  
+
+ </section>  
+<section class="section" id="adminAccess">
+  <button class="button" id="adminButton">
+    ⚙️ Administración
+  </button>
+</section>
+  <section class="section">
+    <h2>✨ Productos destacados</h2>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">👗</div>
+        <div class="product-info">
+          <h3>Moda SHEIN</h3>
+          <div class="price">Desde $15</div>
+          <button class="button">Ver producto</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">💄</div>
+        <div class="product-info">
+          <h3>Productos de belleza</h3>
+          <div class="price">Desde $10</div>
+          <button class="button">Ver producto</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">👜</div>
+        <div class="product-info">
+          <h3>Carteras</h3>
+          <div class="price">Desde $20</div>
+          <button class="button">Ver producto</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">💎</div>
+        <div class="product-info">
+          <h3>Bisutería</h3>
+          <div class="price">Desde $8</div>
+          <button class="button">Ver producto</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="custom">
+    <h2>📦 ¿Quieres algo de otra tienda?</h2>
+
+    <p>
+      Podemos ayudarte a realizar encargos de Amazon, SHEIN,
+      Temu y otras tiendas online.
+    </p>
+
+    <button>Hacer un encargo 💕</button>
+  </section>
+
+  <footer>
+    🎀✨ BLESSED BEAUTY 🌷💖<br>
+    Gracias por ser parte de nuestra familia.<br>
+    🙏🏻 Ponemos cada pedido en las manos de Dios. ✝️
+  </footer>
+<script>
+async function loadProducts() {
+  const container = document.getElementById("products-container");
+
+  try {
+    const { data, error } = await supabaseClient
+      .from("products")
+      .select("*");
+
+    if (error) throw error;
+
+    if (!data || data.length === 0) {
+      container.innerHTML = "<p>No hay productos disponibles todavía.</p>";
+      return;
+    }
+
+    window.blessedBeautyProducts = data;
+
+    container.innerHTML = data.map(product => `
+      <div class="product" data-product-id="${product.id}">
+        <div class="product-image">
+          ${product.image_url
+            ? `<img src="${product.image_url}" alt="${product.name || "Producto"}" style="width:100%;height:100%;object-fit:cover;border-radius:20px;">`
+            : "🛍️"}
+        </div>
+
+        <div class="product-info">
+          <h3>${product.name || "Producto"}</h3>
+          <div class="price">$${product.price || "Consultar"}</div>
+          <button class="button">Ver producto</button>
+        </div>
+      </div>
+    `).join("");
+
+  } catch (error) {
+    console.error("Error cargando productos:", error);
+    container.innerHTML = "<p>No se pudieron cargar los productos.</p>";
+  }
+}
+
+loadProducts();
+</script>
+ <script>
+document.addEventListener("click", function(event) {
+  const button = event.target.closest(".product .button");
+  if (!button) return;
+
+  const card = button.closest(".product");
+  const productId = card.dataset.productId;
+  const dbProduct = (window.blessedBeautyProducts || []).find(p => String(p.id) === String(productId));
+
+  const name = dbProduct?.name || card.querySelector("h3")?.textContent || "Producto";
+  const numericPrice = Number(dbProduct?.price ?? parseFloat((card.querySelector(".price")?.textContent || "").replace(/[^0-9.]/g, ""))) || 0;
+  const price = `$${numericPrice}`;
+  const image = dbProduct?.image_url || card.querySelector("img")?.src || "";
+  const category = dbProduct?.category || "";
+  const description = dbProduct?.description || "";
+  const sizes = String(dbProduct?.sizes || "").split(",").map(s => s.trim()).filter(Boolean);
+
+  const modal = document.createElement("div");
+  modal.style.cssText = `position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;`;
+
+  const sizesHTML = sizes.length ? `
+    <div style="margin:16px 0;text-align:left;">
+      <div style="font-weight:800;color:#7b4563;margin-bottom:10px;">📏 Selecciona tu talla:</div>
+      <div id="sizeOptions" style="display:flex;flex-wrap:wrap;gap:8px;">
+        ${sizes.map(size => `<button type="button" class="size-option" data-size="${size}" style="border:2px solid #efb5cf;background:white;color:#7b4563;border-radius:12px;padding:9px 14px;font-weight:800;">${size}</button>`).join("")}
+      </div>
+    </div>` : "";
+
+  modal.innerHTML = `
+    <div style="background:white;border-radius:25px;padding:25px;width:100%;max-width:380px;max-height:90vh;overflow:auto;text-align:center;">
+      ${image ? `<img src="${image}" style="width:100%;height:250px;object-fit:cover;border-radius:20px;">` : `<div style="font-size:80px;padding:40px;">🛍️</div>`}
+      <h2 style="color:#7b4563;margin:20px 0 10px;">${name}</h2>
+      <div style="font-size:25px;font-weight:bold;color:#d95b91;margin-bottom:12px;">${price}</div>
+      ${category ? `<div style="color:#8f4d6d;font-weight:700;margin-bottom:10px;">👗 ${category}</div>` : ""}
+      ${description ? `<div style="color:#765667;line-height:1.5;text-align:left;background:#fff7fb;padding:12px;border-radius:14px;">📝 ${description}</div>` : ""}
+      ${sizesHTML}
+      <button id="addToCartButton" style="background:#e582ad;color:white;border:none;border-radius:15px;padding:14px 20px;font-size:16px;font-weight:bold;margin:5px;">🛒 Agregar al carrito</button>
+      <button id="closeProductModal" style="background:#f3c4d8;color:#7b4563;border:none;border-radius:15px;padding:14px 20px;font-size:16px;font-weight:bold;margin:5px;">Cerrar</button>
+    </div>`;
+
+  document.body.appendChild(modal);
+  let selectedSize = "";
+
+  modal.querySelectorAll(".size-option").forEach(sizeButton => {
+    sizeButton.onclick = function() {
+      selectedSize = this.dataset.size;
+      modal.querySelectorAll(".size-option").forEach(b => { b.style.background = "white"; b.style.color = "#7b4563"; });
+      this.style.background = "#e582ad";
+      this.style.color = "white";
+    };
+  });
+
+  document.getElementById("closeProductModal").onclick = () => modal.remove();
+
+  document.getElementById("addToCartButton").onclick = function() {
+    if (sizes.length && !selectedSize) {
+      alert("📏 Selecciona una talla antes de agregar el producto.");
+      return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("blessedBeautyCart")) || [];
+    const existing = cart.find(item => item.name === name && (item.size || "") === selectedSize);
+
+    if (existing) existing.quantity += 1;
+    else cart.push({ name, price: numericPrice, image, size: selectedSize, quantity: 1 });
+
+    localStorage.setItem("blessedBeautyCart", JSON.stringify(cart));
+    alert(`🛒 Producto agregado al carrito${selectedSize ? ` · Talla ${selectedSize}` : ""}`);
+  };
+
+  modal.addEventListener("click", e => { if (e.target === modal) modal.remove(); });
+});
+// 🛒 CARRITO BLESSED BEAUTY
+
+const cartButton = document.createElement("button");
+
+cartButton.innerHTML = "🛒 Mi carrito";
+
+cartButton.style.cssText = `
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+  background:#e582ad;
+  color:white;
+  border:none;
+  border-radius:25px;
+  padding:14px 20px;
+  font-size:16px;
+  font-weight:bold;
+  box-shadow:0 4px 15px rgba(0,0,0,.2);
+`;
+
+document.body.appendChild(cartButton);
+
+cartButton.onclick = function() {
+
+  const cart = JSON.parse(
+    localStorage.getItem("blessedBeautyCart")
+  ) || [];
+
+  const cartModal = document.createElement("div");
+
+  cartModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10000;
+    padding:20px;
+  `;
+
+  let total = 0;
+
+  let productsHTML = "";
+
+  if (cart.length === 0) {
+
+    productsHTML = `
+      <p style="
+        text-align:center;
+        font-size:18px;
+        color:#7b4563;
+      ">
+        🛍️ Tu carrito está vacío
+      </p>
+    `;
+
+  } else {
+
+    productsHTML = cart.map((item, index) => {
+
+      total += item.price * item.quantity;
+
+      return `
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:12px;
+          padding:12px 0;
+          border-bottom:1px solid #f0c5d8;
+        ">
+
+          <div style="
+            width:65px;
+            height:65px;
+            border-radius:12px;
+            overflow:hidden;
+            background:#f8dce8;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+          ">
+            ${
+              item.image
+              ? `<img src="${item.image}"
+                   style="width:100%;height:100%;object-fit:cover;">`
+              : "🛍️"
+            }
+          </div>
+
+          <div style="flex:1;">
+            <strong>${item.name}</strong>
+
+            <div style="
+              color:#d95b91;
+              margin-top:5px;
+            ">
+              $${item.price.toFixed(2)}
+            </div>
+            ${item.size ? `<div style="color:#7b4563;margin-top:4px;font-weight:700;">📏 Talla: ${item.size}</div>` : ""}
+
+         <div style="
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+">
+
+  <button
+    data-cart-action="minus"
+    data-cart-index="${index}"
+    style="
+      width:35px;
+      height:35px;
+      border:none;
+      border-radius:10px;
+      background:#f3c4d8;
+      color:#7b4563;
+      font-size:20px;
+      font-weight:bold;
+    ">
+    −
+  </button>
+
+  <span style="
+    min-width:35px;
+    text-align:center;
+    font-weight:bold;
+  ">
+    ${item.quantity}
+  </span>
+
+  <button
+    data-cart-action="plus"
+    data-cart-index="${index}"
+    style="
+      width:35px;
+      height:35px;
+      border:none;
+      border-radius:10px;
+      background:#e582ad;
+      color:white;
+      font-size:20px;
+      font-weight:bold;
+    ">
+    +
+  </button>
+
+  <button
+    data-cart-action="remove"
+    data-cart-index="${index}"
+    style="
+      margin-left:8px;
+      border:none;
+      background:none;
+      font-size:20px;
+    ">
+    🗑️
+  </button>
+
+</div>   
+          </div>
+
+        </div>
+      `;
+    }).join("");
+  }
+
+  cartModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      max-height:85vh;
+      overflow:auto;
+      border-radius:25px;
+      padding:25px;
+      box-sizing:border-box;
+    ">
+
+      <h2 style="
+        text-align:center;
+        color:#d95b91;
+        margin-top:0;
+      ">
+        🛒 Mi carrito
+      </h2>
+
+      ${productsHTML}
+
+      <div style="
+        text-align:center;
+        margin-top:20px;
+        font-size:22px;
+        font-weight:bold;
+        color:#d95b91;
+      ">
+        Total: $${total.toFixed(2)}
+      </div>
+<button id="whatsappOrderButton" style="
+  width:100%;
+  margin-top:20px;
+  background:#25D366;
+  color:white;
+  border:none;
+  border-radius:15px;
+  padding:15px;
+  font-size:16px;
+  font-weight:bold;
+">
+  📲 Enviar pedido por WhatsApp
+</button>
+      <button id="closeCartButton" style="
+        width:100%;
+        margin-top:20px;
+        background:#f3c4d8;
+        color:#7b4563;
+        border:none;
+        border-radius:15px;
+        padding:14px;
+        font-size:16px;
+        font-weight:bold;
+      ">
+        Cerrar
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(cartModal);
+document.getElementById("whatsappOrderButton").onclick = function() {
+
+  if (cart.length === 0) {
+    alert("🛍️ Tu carrito está vacío");
+    return;
+  }
+
+  let message = "🎀✨ BLESSED BEAUTY ✨🎀\n\n";
+  message += "🛍️ NUEVO PEDIDO\n\n";
+
+  cart.forEach(item => {
+  message += `• ${item.name}\n`;
+  if (item.size) message += `  Talla: ${item.size}\n`;
+  message += `  Cantidad: ${item.quantity}\n`;
+  message += `  Precio: $${item.price.toFixed(2)}\n`;
+
+  if (item.image) {
+    message += `  📸 Foto: ${item.image}\n`;
+  }
+
+  message += `\n`;
+});
+
+  message += `💰 TOTAL: $${total.toFixed(2)}\n\n`;
+  message += "💗 Gracias por elegir Blessed Beauty.";
+
+  const phone = "5359304384";
+
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+};
+  cartModal.addEventListener("click", function(e) {
+
+  const button = e.target.closest("[data-cart-action]");
+
+  if (!button) return;
+
+  const action = button.dataset.cartAction;
+  const index = Number(button.dataset.cartIndex);
+
+  let cart = JSON.parse(
+    localStorage.getItem("blessedBeautyCart")
+  ) || [];
+
+  if (action === "plus") {
+    cart[index].quantity += 1;
+  }
+
+  if (action === "minus") {
+    cart[index].quantity -= 1;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+  }
+
+  if (action === "remove") {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem(
+    "blessedBeautyCart",
+    JSON.stringify(cart)
+  );
+
+  cartModal.remove();
+  cartButton.click();
+
+});
+  document.getElementById("closeCartButton").onclick = function() {
+    cartModal.remove();
+  };
+
+  cartModal.onclick = function(e) {
+    if (e.target === cartModal) {
+      cartModal.remove();
+    }
+  };
+
+};</script>   
+    <script>
+document.getElementById("adminButton").onclick = function() {
+
+  const adminModal = document.createElement("div");
+
+  adminModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.60);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:20000;
+    padding:20px;
+  `;
+
+  adminModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      border-radius:25px;
+      padding:25px;
+      box-sizing:border-box;
+      text-align:center;
+    ">
+
+      <h2 style="color:#d95b91;">
+        🎀 Blessed Beauty Admin
+      </h2>
+
+      <p style="color:#7b4563;">
+        Panel de administración ✝️💖
+      </p>
+
+      <button id="addProductAdmin" class="button"
+        style="width:100%;margin-top:15px;">
+        ➕ Agregar producto
+      </button>
+
+      <button id="manageProductsAdmin" class="button"
+        style="width:100%;margin-top:12px;">
+        📦 Administrar productos
+      </button>
+
+      <button id="closeAdminPanel"
+        style="
+          width:100%;
+          margin-top:20px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cerrar
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(adminModal);
+document.getElementById("addProductAdmin").onclick = function() {
+
+  const productModal = document.createElement("div");
+
+  productModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:30000;
+    padding:20px;
+  `;
+
+  productModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      max-height:90vh;
+      overflow:auto;
+      border-radius:25px;
+      padding:25px;
+      box-sizing:border-box;
+    ">
+
+      <h2 style="text-align:center;color:#d95b91;">
+        🎀 Agregar producto
+      </h2>
+
+      <label>📸 Foto del producto</label>
+      <input id="newProductImage" type="file" accept="image/*"
+        style="width:100%;margin:10px 0 18px;">
+
+      <label>Nombre</label>
+      <input id="newProductName" type="text" placeholder="Ej: Vestido SHEIN"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Precio ($)</label>
+      <input id="newProductPrice" type="number" step="0.01" placeholder="15.00"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Categoría</label>
+      <select id="newProductCategory"
+        style="width:100%;padding:12px;margin:8px 0 15px;">
+        <option value="SHEIN">SHEIN</option>
+        <option value="Maquillaje">Maquillaje</option>
+        <option value="Carteras">Carteras</option>
+        <option value="Accesorios">Accesorios</option>
+        <option value="Hogar">Hogar</option>
+        <option value="Encargos">Encargos</option>
+      </select>
+
+      <label>Tallas</label>
+      <input id="newProductSizes" type="text" placeholder="Ej: S, M, L"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Descripción</label>
+      <textarea id="newProductDescription" placeholder="Descripción del producto"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;"></textarea>
+
+      <button id="publishProductButton" class="button"
+        style="width:100%;margin-top:10px;">
+        💖 Publicar producto
+      </button>
+
+      <button id="cancelNewProduct"
+        style="
+          width:100%;
+          margin-top:12px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cancelar
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(productModal);
+
+  document.getElementById("cancelNewProduct").onclick = function() {
+    productModal.remove();
+  };
+
+document.getElementById("publishProductButton").onclick = async function() {
+  const button = this;
+
+  const file = document.getElementById("newProductImage").files[0];
+  const name = document.getElementById("newProductName").value.trim();
+  const price = Number(document.getElementById("newProductPrice").value);
+  const category = document.getElementById("newProductCategory").value;
+  const sizes = document.getElementById("newProductSizes").value.trim();
+  const description = document.getElementById("newProductDescription").value.trim();
+
+  if (!file || !name || !price) {
+    alert("🎀 Agrega una foto, nombre y precio.");
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "⏳ Publicando...";
+
+  try {
+    const fileName = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
+
+    const { error: uploadError } = await supabaseClient.storage
+      .from("product-images")
+      .upload(fileName, file);
+
+    if (uploadError) throw uploadError;
+
+    const { data: publicUrlData } = supabaseClient.storage
+      .from("product-images")
+      .getPublicUrl(fileName);
+
+    const imageUrl = publicUrlData.publicUrl;
+
+    const { error: insertError } = await supabaseClient
+      .from("products")
+      .insert({
+        name: name,
+        price: price,
+        category: category,
+        sizes: sizes,
+        description: description,
+        image_url: imageUrl,
+        available: true
+      });
+
+    if (insertError) throw insertError;
+
+    alert("💖 Producto publicado correctamente");
+    productModal.remove();
+    loadProducts();
+
+  } catch (error) {
+    console.error(error);
+    alert("❌ No se pudo publicar: " + error.message);
+    button.disabled = false;
+    button.textContent = "💖 Publicar producto";
+  }
+};
+
+};
+
+ document.getElementById("manageProductsAdmin").onclick = async function() {
+  const { data: products, error } = await supabaseClient
+    .from("products")
+    .select("*")
+    .order("id", { ascending: false });
+
+  if (error) {
+    alert("❌ No se pudieron cargar los productos: " + error.message);
+    return;
+  }
+
+  const manageModal = document.createElement("div");
+
+  manageModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:40000;
+    padding:20px;
+  `;
+
+  manageModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      max-height:85vh;
+      overflow-y:auto;
+      border-radius:25px;
+      padding:25px;
+    ">
+      <h2 style="text-align:center;color:#d95b91;">
+        📦 Administrar productos
+      </h2>
+
+      <div id="adminProductsList">
+        ${products.length === 0
+          ? "<p>No hay productos.</p>"
+          : products.map(product => `
+            <div style="
+              border:1px solid #f3c4d8;
+              border-radius:18px;
+              padding:12px;
+              margin:12px 0;
+            ">
+              ${product.image_url
+                ? `<img src="${product.image_url}"
+                    style="width:80px;height:80px;object-fit:cover;border-radius:12px;">`
+                : "🛍️"}
+
+              <h3>${product.name}</h3>
+              <strong style="color:#d95b91;">$${product.price}</strong>
+
+              <div style="margin-top:10px;">
+                <button
+                  class="editAdminProduct button"
+                  data-id="${product.id}">
+                  ✏️ Editar
+                </button>
+
+                <button
+                  class="deleteAdminProduct button"
+                  data-id="${product.id}"
+                  style="margin-top:7px;">
+                  🗑️ Eliminar
+                </button>
+              </div>
+            </div>
+          `).join("")}
+      </div>
+
+      <button id="closeManageProducts"
+        style="
+          width:100%;
+          margin-top:15px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cerrar
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(manageModal);
+
+   document.querySelectorAll(".deleteAdminProduct").forEach(button => {
+  button.onclick = async function() {
+    const productId = this.dataset.id;
+
+    const confirmar = confirm("🗑️ ¿Seguro que quieres eliminar este producto?");
+    if (!confirmar) return;
+
+    const { error } = await supabaseClient
+      .from("products")
+      .delete()
+      .eq("id", productId);
+
+    if (error) {
+      alert("❌ No se pudo eliminar: " + error.message);
+      return;
+    }
+
+    alert("💖 Producto eliminado correctamente");
+    manageModal.remove();
+    loadProducts();
+  };
+});
+
+  document.getElementById("closeManageProducts").onclick = function() {
+    manageModal.remove();
+  };
+document.querySelectorAll(".editAdminProduct").forEach(button => {
+  button.onclick = function() {
+    const productId = this.dataset.id;
+    const product = products.find(p => String(p.id) === String(productId));
+
+    if (!product) return;
+
+    const editModal = document.createElement("div");
+
+    editModal.style.cssText = `
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:50000;
+      padding:20px;
+    `;
+
+    editModal.innerHTML = `
+      <div style="
+        background:white;
+        width:100%;
+        max-width:430px;
+        max-height:90vh;
+        overflow-y:auto;
+        border-radius:25px;
+        padding:25px;
+      ">
+        <h2 style="text-align:center;color:#d95b91;">
+          ✏️ Editar producto
+        </h2>
+<label>📸 Cambiar foto</label>
+<input id="editProductImage" type="file" accept="image/*"
+  style="width:100%;padding:12px;margin:8px 0 15px;">
+        <label>Nombre</label>
+        <input id="editProductName"
+          value="${product.name || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Precio ($)</label>
+        <input id="editProductPrice"
+          type="number"
+          step="0.01"
+          value="${product.price || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Categoría</label>
+        <select id="editProductCategory"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+          <option value="SHEIN">SHEIN</option>
+          <option value="Maquillaje">Maquillaje</option>
+          <option value="Carteras">Carteras</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Encargos">Encargos</option>
+        </select>
+
+        <label>Tallas</label>
+        <input id="editProductSizes"
+          value="${product.sizes || ""}"
+          placeholder="Ej: S, M, L"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Descripción</label>
+        <textarea id="editProductDescription"
+          style="width:100%;padding:12px;margin:8px 0 15px;"
+        >${product.description || ""}</textarea>
+
+        <button id="saveProductChanges" class="button"
+          style="width:100%;">
+          💖 Guardar cambios
+        </button>
+
+        <button id="cancelProductEdit"
+          style="
+            width:100%;
+            margin-top:12px;
+            background:#f3c4d8;
+            color:#7b4563;
+            border:none;
+            border-radius:15px;
+            padding:14px;
+            font-size:16px;
+            font-weight:bold;
+          ">
+          Cancelar
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(editModal);
+
+    document.getElementById("editProductCategory").value =
+      product.category || "SHEIN";
+
+    document.getElementById("cancelProductEdit").onclick = function() {
+      editModal.remove();
+    };
+
+    document.getElementById("saveProductChanges").onclick = async function() {
+      const saveButton = this;
+      saveButton.disabled = true;
+      saveButton.textContent = "⏳ Guardando...";
+      const newImageFile = document.getElementById("editProductImage").files[0];
+let newImageUrl = product.image_url;
+
+if (newImageFile) {
+  const fileName = `${Date.now()}-${newImageFile.name}`;
+
+  const { error: uploadError } = await supabaseClient.storage
+    .from("product-images")
+    .upload(fileName, newImageFile);
+
+  if (uploadError) {
+    alert("❌ No se pudo subir la foto: " + uploadError.message);
+    saveButton.disabled = false;
+    saveButton.textContent = "💖 Guardar cambios";
+    return;
+  }
+
+  const { data: publicUrlData } = supabaseClient.storage
+    .from("product-images")
+    .getPublicUrl(fileName);
+
+  newImageUrl = publicUrlData.publicUrl;
+}
+
+      const { error } = await supabaseClient
+        .from("products")
+        .update({
+          name: document.getElementById("editProductName").value.trim(),
+          price: Number(document.getElementById("editProductPrice").value),
+          category: document.getElementById("editProductCategory").value,
+          sizes: document.getElementById("editProductSizes").value.trim(),
+          description: document.getElementById("editProductDescription").value.trim(),
+          image_url: newImageUrl
+        })
+        .eq("id", product.id);
+
+      if (error) {
+        alert("❌ No se pudo editar: " + error.message);
+        saveButton.disabled = false;
+        saveButton.textContent = "💖 Guardar cambios";
+        return;
+      }
+
+      alert("💖 Producto actualizado correctamente");
+      editModal.remove();
+      manageModal.remove();
+      loadProducts();
+    };
+  };
+});
+ 
+  
+  document.getElementById("closeAdminPanel").onclick = function() {
+    adminModal.remove();
+  };
+
+};
+</script>
+</body>
+</html>
