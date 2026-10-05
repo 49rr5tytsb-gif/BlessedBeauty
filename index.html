@@ -1165,7 +1165,9 @@ document.querySelectorAll(".editAdminProduct").forEach(button => {
         <h2 style="text-align:center;color:#d95b91;">
           ✏️ Editar producto
         </h2>
-
+<label>📸 Cambiar foto</label>
+<input id="editProductImage" type="file" accept="image/*"
+  style="width:100%;padding:12px;margin:8px 0 15px;">
         <label>Nombre</label>
         <input id="editProductName"
           value="${product.name || ""}"
@@ -1235,6 +1237,29 @@ document.querySelectorAll(".editAdminProduct").forEach(button => {
       const saveButton = this;
       saveButton.disabled = true;
       saveButton.textContent = "⏳ Guardando...";
+      const newImageFile = document.getElementById("editProductImage").files[0];
+let newImageUrl = product.image_url;
+
+if (newImageFile) {
+  const fileName = `${Date.now()}-${newImageFile.name}`;
+
+  const { error: uploadError } = await supabaseClient.storage
+    .from("product-images")
+    .upload(fileName, newImageFile);
+
+  if (uploadError) {
+    alert("❌ No se pudo subir la foto: " + uploadError.message);
+    saveButton.disabled = false;
+    saveButton.textContent = "💖 Guardar cambios";
+    return;
+  }
+
+  const { data: publicUrlData } = supabaseClient.storage
+    .from("product-images")
+    .getPublicUrl(fileName);
+
+  newImageUrl = publicUrlData.publicUrl;
+}
 
       const { error } = await supabaseClient
         .from("products")
