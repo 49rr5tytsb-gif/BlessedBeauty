@@ -1202,6 +1202,12 @@ document.querySelectorAll(".editAdminProduct").forEach(button => {
           style="width:100%;padding:12px;margin:8px 0 15px;"
         >${product.description || ""}</textarea>
 
+        <label>Foto del producto</label>
+<input id="editProductImage"
+       type="file"
+       accept="image/*"
+       style="width:100%;padding:12px;margin:8px 0 15px;">
+
         <button id="saveProductChanges" class="button"
           style="width:100%;">
           💖 Guardar cambios
