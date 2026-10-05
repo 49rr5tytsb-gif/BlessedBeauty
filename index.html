@@ -1109,7 +1109,136 @@ document.getElementById("publishProductButton").onclick = async function() {
   document.getElementById("closeManageProducts").onclick = function() {
     manageModal.remove();
   };
-}; 
+document.querySelectorAll(".editAdminProduct").forEach(button => {
+  button.onclick = function() {
+    const productId = this.dataset.id;
+    const product = products.find(p => String(p.id) === String(productId));
+
+    if (!product) return;
+
+    const editModal = document.createElement("div");
+
+    editModal.style.cssText = `
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:50000;
+      padding:20px;
+    `;
+
+    editModal.innerHTML = `
+      <div style="
+        background:white;
+        width:100%;
+        max-width:430px;
+        max-height:90vh;
+        overflow-y:auto;
+        border-radius:25px;
+        padding:25px;
+      ">
+        <h2 style="text-align:center;color:#d95b91;">
+          ✏️ Editar producto
+        </h2>
+
+        <label>Nombre</label>
+        <input id="editProductName"
+          value="${product.name || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Precio ($)</label>
+        <input id="editProductPrice"
+          type="number"
+          step="0.01"
+          value="${product.price || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Categoría</label>
+        <select id="editProductCategory"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+          <option value="SHEIN">SHEIN</option>
+          <option value="Maquillaje">Maquillaje</option>
+          <option value="Carteras">Carteras</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Encargos">Encargos</option>
+        </select>
+
+        <label>Tallas</label>
+        <input id="editProductSizes"
+          value="${product.sizes || ""}"
+          placeholder="Ej: S, M, L"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Descripción</label>
+        <textarea id="editProductDescription"
+          style="width:100%;padding:12px;margin:8px 0 15px;"
+        >${product.description || ""}</textarea>
+
+        <button id="saveProductChanges" class="button"
+          style="width:100%;">
+          💖 Guardar cambios
+        </button>
+
+        <button id="cancelProductEdit"
+          style="
+            width:100%;
+            margin-top:12px;
+            background:#f3c4d8;
+            color:#7b4563;
+            border:none;
+            border-radius:15px;
+            padding:14px;
+            font-size:16px;
+            font-weight:bold;
+          ">
+          Cancelar
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(editModal);
+
+    document.getElementById("editProductCategory").value =
+      product.category || "SHEIN";
+
+    document.getElementById("cancelProductEdit").onclick = function() {
+      editModal.remove();
+    };
+
+    document.getElementById("saveProductChanges").onclick = async function() {
+      const saveButton = this;
+      saveButton.disabled = true;
+      saveButton.textContent = "⏳ Guardando...";
+
+      const { error } = await supabaseClient
+        .from("products")
+        .update({
+          name: document.getElementById("editProductName").value.trim(),
+          price: Number(document.getElementById("editProductPrice").value),
+          category: document.getElementById("editProductCategory").value,
+          sizes: document.getElementById("editProductSizes").value.trim(),
+          description: document.getElementById("editProductDescription").value.trim()
+        })
+        .eq("id", product.id);
+
+      if (error) {
+        alert("❌ No se pudo editar: " + error.message);
+        saveButton.disabled = false;
+        saveButton.textContent = "💖 Guardar cambios";
+        return;
+      }
+
+      alert("💖 Producto actualizado correctamente");
+      editModal.remove();
+      manageModal.remove();
+      loadProducts();
+    };
+  };
+});
+ }; 
   document.getElementById("closeAdminPanel").onclick = function() {
     adminModal.remove();
   };
