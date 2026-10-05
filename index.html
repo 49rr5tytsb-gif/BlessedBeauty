@@ -681,7 +681,19 @@ cartButton.onclick = function() {
       ">
         Total: $${total.toFixed(2)}
       </div>
-
+<button id="whatsappOrderButton" style="
+  width:100%;
+  margin-top:20px;
+  background:#25D366;
+  color:white;
+  border:none;
+  border-radius:15px;
+  padding:15px;
+  font-size:16px;
+  font-weight:bold;
+">
+  📲 Enviar pedido por WhatsApp
+</button>
       <button id="closeCartButton" style="
         width:100%;
         margin-top:20px;
@@ -700,7 +712,33 @@ cartButton.onclick = function() {
   `;
 
   document.body.appendChild(cartModal);
-cartModal.addEventListener("click", function(e) {
+document.getElementById("whatsappOrderButton").onclick = function() {
+
+  if (cart.length === 0) {
+    alert("🛍️ Tu carrito está vacío");
+    return;
+  }
+
+  let message = "🎀✨ BLESSED BEAUTY ✨🎀\n\n";
+  message += "🛍️ NUEVO PEDIDO\n\n";
+
+  cart.forEach(item => {
+    message += `• ${item.name}\n`;
+    message += `  Cantidad: ${item.quantity}\n`;
+    message += `  Precio: $${item.price.toFixed(2)}\n\n`;
+  });
+
+  message += `💰 TOTAL: $${total.toFixed(2)}\n\n`;
+  message += "💗 Gracias por elegir Blessed Beauty.";
+
+  const phone = "5359304384";
+
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+};
+  cartModal.addEventListener("click", function(e) {
 
   const button = e.target.closest("[data-cart-action]");
 
