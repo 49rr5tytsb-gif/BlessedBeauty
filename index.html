@@ -861,7 +861,99 @@ document.getElementById("adminButton").onclick = function() {
   `;
 
   document.body.appendChild(adminModal);
+document.getElementById("addProductAdmin").onclick = function() {
 
+  const productModal = document.createElement("div");
+
+  productModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:30000;
+    padding:20px;
+  `;
+
+  productModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      max-height:90vh;
+      overflow:auto;
+      border-radius:25px;
+      padding:25px;
+      box-sizing:border-box;
+    ">
+
+      <h2 style="text-align:center;color:#d95b91;">
+        🎀 Agregar producto
+      </h2>
+
+      <label>📸 Foto del producto</label>
+      <input id="newProductImage" type="file" accept="image/*"
+        style="width:100%;margin:10px 0 18px;">
+
+      <label>Nombre</label>
+      <input id="newProductName" type="text" placeholder="Ej: Vestido SHEIN"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Precio ($)</label>
+      <input id="newProductPrice" type="number" step="0.01" placeholder="15.00"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Categoría</label>
+      <select id="newProductCategory"
+        style="width:100%;padding:12px;margin:8px 0 15px;">
+        <option value="SHEIN">SHEIN</option>
+        <option value="Maquillaje">Maquillaje</option>
+        <option value="Carteras">Carteras</option>
+        <option value="Accesorios">Accesorios</option>
+        <option value="Hogar">Hogar</option>
+        <option value="Encargos">Encargos</option>
+      </select>
+
+      <label>Tallas</label>
+      <input id="newProductSizes" type="text" placeholder="Ej: S, M, L"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;">
+
+      <label>Descripción</label>
+      <textarea id="newProductDescription" placeholder="Descripción del producto"
+        style="width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box;"></textarea>
+
+      <button id="publishProductButton" class="button"
+        style="width:100%;margin-top:10px;">
+        💖 Publicar producto
+      </button>
+
+      <button id="cancelNewProduct"
+        style="
+          width:100%;
+          margin-top:12px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cancelar
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(productModal);
+
+  document.getElementById("cancelNewProduct").onclick = function() {
+    productModal.remove();
+  };
+
+};
+ 
   document.getElementById("closeAdminPanel").onclick = function() {
     adminModal.remove();
   };
