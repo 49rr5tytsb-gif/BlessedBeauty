@@ -256,7 +256,7 @@
       </div>
 
     </div>
-    </div>        
+  </section>
 
   <section class="section">
     <h2>🛍️ Productos</h2>
@@ -1202,12 +1202,6 @@ document.querySelectorAll(".editAdminProduct").forEach(button => {
           style="width:100%;padding:12px;margin:8px 0 15px;"
         >${product.description || ""}</textarea>
 
-        <label>Foto del producto</label>
-<input id="editProductImage"
-       type="file"
-       accept="image/*"
-       style="width:100%;padding:12px;margin:8px 0 15px;">
-
         <button id="saveProductChanges" class="button"
           style="width:100%;">
           💖 Guardar cambios
@@ -1274,7 +1268,7 @@ if (newImageFile) {
           price: Number(document.getElementById("editProductPrice").value),
           category: document.getElementById("editProductCategory").value,
           sizes: document.getElementById("editProductSizes").value.trim(),
-          description: document.getElementById("editProductDescription").value.trim()
+          description: document.getElementById("editProductDescription").value.trim(),
           image_url: newImageUrl
         })
         .eq("id", product.id);
