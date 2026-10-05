@@ -267,7 +267,11 @@
   
 
  </section>  
-
+<section class="section" id="adminAccess">
+  <button class="button" id="adminButton">
+    ⚙️ Administración
+  </button>
+</section>
   <section class="section">
     <h2>✨ Productos destacados</h2>
 
@@ -793,5 +797,76 @@ document.getElementById("whatsappOrderButton").onclick = function() {
   };
 
 };</script>   
+    <script>
+document.getElementById("adminButton").onclick = function() {
+
+  const adminModal = document.createElement("div");
+
+  adminModal.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.60);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:20000;
+    padding:20px;
+  `;
+
+  adminModal.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      border-radius:25px;
+      padding:25px;
+      box-sizing:border-box;
+      text-align:center;
+    ">
+
+      <h2 style="color:#d95b91;">
+        🎀 Blessed Beauty Admin
+      </h2>
+
+      <p style="color:#7b4563;">
+        Panel de administración ✝️💖
+      </p>
+
+      <button id="addProductAdmin" class="button"
+        style="width:100%;margin-top:15px;">
+        ➕ Agregar producto
+      </button>
+
+      <button id="manageProductsAdmin" class="button"
+        style="width:100%;margin-top:12px;">
+        📦 Administrar productos
+      </button>
+
+      <button id="closeAdminPanel"
+        style="
+          width:100%;
+          margin-top:20px;
+          background:#f3c4d8;
+          color:#7b4563;
+          border:none;
+          border-radius:15px;
+          padding:14px;
+          font-size:16px;
+          font-weight:bold;
+        ">
+        Cerrar
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(adminModal);
+
+  document.getElementById("closeAdminPanel").onclick = function() {
+    adminModal.remove();
+  };
+
+};
+</script>
 </body>
 </html>
