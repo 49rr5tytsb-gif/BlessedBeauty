@@ -952,6 +952,65 @@ document.getElementById("addProductAdmin").onclick = function() {
     productModal.remove();
   };
 
+document.getElementById("publishProductButton").onclick = async function() {
+  const button = this;
+
+  const file = document.getElementById("newProductImage").files[0];
+  const name = document.getElementById("newProductName").value.trim();
+  const price = Number(document.getElementById("newProductPrice").value);
+  const category = document.getElementById("newProductCategory").value;
+  const sizes = document.getElementById("newProductSizes").value.trim();
+  const description = document.getElementById("newProductDescription").value.trim();
+
+  if (!file || !name || !price) {
+    alert("🎀 Agrega una foto, nombre y precio.");
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "⏳ Publicando...";
+
+  try {
+    const fileName = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
+
+    const { error: uploadError } = await supabaseClient.storage
+      .from("product-images")
+      .upload(fileName, file);
+
+    if (uploadError) throw uploadError;
+
+    const { data: publicUrlData } = supabaseClient.storage
+      .from("product-images")
+      .getPublicUrl(fileName);
+
+    const imageUrl = publicUrlData.publicUrl;
+
+    const { error: insertError } = await supabaseClient
+      .from("products")
+      .insert({
+        name: name,
+        price: price,
+        category: category,
+        sizes: sizes,
+        description: description,
+        image_url: imageUrl,
+        available: true
+      });
+
+    if (insertError) throw insertError;
+
+    alert("💖 Producto publicado correctamente");
+    productModal.remove();
+    loadProducts();
+
+  } catch (error) {
+    console.error(error);
+    alert("❌ No se pudo publicar: " + error.message);
+    button.disabled = false;
+    button.textContent = "💖 Publicar producto";
+  }
+};
+
 };
  
   document.getElementById("closeAdminPanel").onclick = function() {
