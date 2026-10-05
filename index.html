@@ -1269,6 +1269,7 @@ if (newImageFile) {
           category: document.getElementById("editProductCategory").value,
           sizes: document.getElementById("editProductSizes").value.trim(),
           description: document.getElementById("editProductDescription").value.trim()
+          image_url: newImageUrl
         })
         .eq("id", product.id);
 
