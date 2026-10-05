@@ -723,10 +723,16 @@ document.getElementById("whatsappOrderButton").onclick = function() {
   message += "🛍️ NUEVO PEDIDO\n\n";
 
   cart.forEach(item => {
-    message += `• ${item.name}\n`;
-    message += `  Cantidad: ${item.quantity}\n`;
-    message += `  Precio: $${item.price.toFixed(2)}\n\n`;
-  });
+  message += `• ${item.name}\n`;
+  message += `  Cantidad: ${item.quantity}\n`;
+  message += `  Precio: $${item.price.toFixed(2)}\n`;
+
+  if (item.image) {
+    message += `  📸 Foto: ${item.image}\n`;
+  }
+
+  message += `\n`;
+});
 
   message += `💰 TOTAL: $${total.toFixed(2)}\n\n`;
   message += "💗 Gracias por elegir Blessed Beauty.";
