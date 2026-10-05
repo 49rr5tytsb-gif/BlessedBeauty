@@ -583,9 +583,66 @@ cartButton.onclick = function() {
               $${item.price.toFixed(2)}
             </div>
 
-            <div style="margin-top:5px;">
-              Cantidad: ${item.quantity}
-            </div>
+         <div style="
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+">
+
+  <button
+    data-cart-action="minus"
+    data-cart-index="${index}"
+    style="
+      width:35px;
+      height:35px;
+      border:none;
+      border-radius:10px;
+      background:#f3c4d8;
+      color:#7b4563;
+      font-size:20px;
+      font-weight:bold;
+    ">
+    −
+  </button>
+
+  <span style="
+    min-width:35px;
+    text-align:center;
+    font-weight:bold;
+  ">
+    ${item.quantity}
+  </span>
+
+  <button
+    data-cart-action="plus"
+    data-cart-index="${index}"
+    style="
+      width:35px;
+      height:35px;
+      border:none;
+      border-radius:10px;
+      background:#e582ad;
+      color:white;
+      font-size:20px;
+      font-weight:bold;
+    ">
+    +
+  </button>
+
+  <button
+    data-cart-action="remove"
+    data-cart-index="${index}"
+    style="
+      margin-left:8px;
+      border:none;
+      background:none;
+      font-size:20px;
+    ">
+    🗑️
+  </button>
+
+</div>   
           </div>
 
         </div>
@@ -643,7 +700,44 @@ cartButton.onclick = function() {
   `;
 
   document.body.appendChild(cartModal);
+cartModal.addEventListener("click", function(e) {
 
+  const button = e.target.closest("[data-cart-action]");
+
+  if (!button) return;
+
+  const action = button.dataset.cartAction;
+  const index = Number(button.dataset.cartIndex);
+
+  let cart = JSON.parse(
+    localStorage.getItem("blessedBeautyCart")
+  ) || [];
+
+  if (action === "plus") {
+    cart[index].quantity += 1;
+  }
+
+  if (action === "minus") {
+    cart[index].quantity -= 1;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+  }
+
+  if (action === "remove") {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem(
+    "blessedBeautyCart",
+    JSON.stringify(cart)
+  );
+
+  cartModal.remove();
+  cartButton.click();
+
+});
   document.getElementById("closeCartButton").onclick = function() {
     cartModal.remove();
   };
