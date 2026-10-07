@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8b6d2">
+
+  <title>🎀 Blessed Beauty</title>
+
+  <style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff9fc;color:#553746;padding-bottom:85px}button,input{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:100;background:#fffffff2;backdrop-filter:blur(14px);border-bottom:1px solid #f1d8e4}.topin{height:66px;max-width:1050px;margin:auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between}.round{width:42px;height:42px;border:0;border-radius:50%;background:#fff0f6;color:#79415d;font-size:19px}.brand{text-align:center}.logo{font-family:Georgia,serif;font-size:23px;font-weight:700;color:#7b405d}.sub{font-size:9px;letter-spacing:1.4px;color:#b07892;margin-top:4px}.page{max-width:1050px;margin:auto}.searcharea{padding:16px 17px 8px}.search{display:flex;gap:9px;align-items:center;height:48px;padding:0 14px;background:#fff;border:1px solid #f0d7e2;border-radius:16px;box-shadow:0 7px 22px #7b405d0d}.search input{width:100%;border:0;outline:0;background:transparent}.hero{padding:8px 17px 20px}.heroCard{min-height:205px;border-radius:28px;padding:28px 22px;background:linear-gradient(135deg,#fde8f1,#f4bad1 60%,#e68fb4);box-shadow:0 16px 35px #c65f8d22;position:relative;overflow:hidden}.heroCard:after{content:"🎀";position:absolute;font-size:110px;right:8px;bottom:-20px;opacity:.22}.kicker{font-size:10px;font-weight:800;letter-spacing:1px;color:#94506e}.hero h1{font-family:Georgia,serif;font-size:30px;line-height:1.06;color:#713a56;max-width:290px;margin:12px 0 9px}.hero p{font-size:13px;line-height:1.5;color:#765064;max-width:270px}.hero button{margin-top:15px;border:0;border-radius:30px;padding:11px 18px;background:#fff;color:#a04f75;font-weight:800}.section{padding:8px 17px 22px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.title h2,#products-container h2{font-family:Georgia,serif;color:#743e59;font-size:21px;margin:0}.small{font-size:12px;color:#c05e8b}.cats{display:flex;gap:14px;overflow:auto;scrollbar-width:none}.cat{min-width:72px;text-align:center;color:#70485c;font-size:11px;font-weight:700}.cat span{display:flex;width:60px;height:60px;margin:0 auto 7px;border-radius:50%;align-items:center;justify-content:center;background:#fff0f6;border:1px solid #f0d5e1;font-size:27px}.products{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.product{background:#fff;border:1px solid #f2dce6;border-radius:20px;overflow:hidden;box-shadow:0 9px 24px #743e5912}.product-image{height:185px;background:#fceaf2;display:flex;align-items:center;justify-content:center;font-size:45px;overflow:hidden}.product-image img{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:0!important}.product-info{padding:11px}.product-info h3{font-size:13px;min-height:34px;margin:0 0 5px}.price{color:#c65f8d;font-size:17px;font-weight:800}.button{display:block;width:100%;margin-top:9px;padding:10px;border:0;border-radius:12px;background:linear-gradient(135deg,#e98bb2,#d7729e);color:#fff;font-weight:800}.custom{margin:4px 17px 25px;padding:23px;border-radius:24px;background:linear-gradient(135deg,#f5bfd4,#df82aa);color:#fff}.custom h2{font-family:Georgia,serif;margin:0 0 8px}.custom p{font-size:13px;line-height:1.5}.custom button{border:0;border-radius:30px;padding:11px 17px;background:#fff;color:#a04f75;font-weight:800}#adminAccess{padding:0 17px 25px}#adminButton{background:#fff;color:#9a5575;border:1px solid #ebcddd}footer{text-align:center;padding:25px 15px 100px;border-top:1px solid #f0d5e1;color:#896879;font-size:12px;line-height:1.7}.nav{position:fixed;z-index:8000;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:620px;height:72px;background:#fffffff5;border-top:1px solid #efd5e1;display:grid;grid-template-columns:repeat(5,1fr);box-shadow:0 -8px 28px #743e5912}.nav button{border:0;background:transparent;color:#9b7889;font-size:10px;font-weight:700}.nav span{display:block;font-size:20px;margin-bottom:3px}.nav .active{color:#c65f8d}@media(min-width:760px){.products{grid-template-columns:repeat(4,1fr)}.product-image{height:235px}.heroCard{min-height:270px;padding:42px}.hero h1{font-size:43px;max-width:500px}.cats{justify-content:space-between}}
+
+.bb-menu-overlay{position:fixed;inset:0;background:rgba(69,38,53,.32);backdrop-filter:blur(2px);z-index:70000;opacity:0;pointer-events:none;transition:.22s}
+.bb-menu-overlay.open{opacity:1;pointer-events:auto}
+.bb-side-menu{position:absolute;left:0;top:0;bottom:0;width:min(86vw,355px);background:#fff9fc;box-shadow:18px 0 45px rgba(75,39,57,.16);transform:translateX(-102%);transition:.26s ease;overflow:auto}
+.bb-menu-overlay.open .bb-side-menu{transform:translateX(0)}
+.bb-menu-head{padding:28px 20px 20px;background:linear-gradient(145deg,#fff0f6,#f8d9e7);border-bottom:1px solid #efd5e1}
+.bb-menu-close{float:right;width:40px;height:40px;border:0;border-radius:50%;background:#fff;color:#8c5870;font-size:21px}
+.bb-menu-logo{font-family:Georgia,serif;color:#743e59;font-size:25px;font-weight:700;margin-top:10px}
+.bb-menu-tag{color:#a16f86;font-size:11px;letter-spacing:1.3px;margin-top:4px}
+.bb-menu-links{padding:14px}
+.bb-menu-link{width:100%;border:0;background:transparent;border-radius:17px;padding:14px 13px;display:flex;align-items:center;gap:13px;text-align:left;color:#69485a;font-size:15px;font-weight:700;margin:3px 0}
+.bb-menu-link:active{background:#fbeaf2}
+.bb-menu-icon{width:36px;height:36px;border-radius:12px;background:#fff0f6;display:grid;place-items:center;font-size:18px}
+.bb-menu-admin{margin-top:12px;border-top:1px solid #f0d9e3;padding-top:12px}
+.bb-menu-faith{margin:18px 14px 8px;padding:16px;border-radius:18px;background:#fff;color:#8b6477;text-align:center;font-family:Georgia,serif;font-size:13px;border:1px solid #f2dce6}
+
+.bb-product-page{position:fixed;inset:0;background:#fffafc;z-index:62000;overflow:auto}
+.bb-product-wrap{max-width:680px;margin:auto;padding-bottom:115px}
+.bb-product-top{position:sticky;top:0;z-index:5;background:#fffafceF;backdrop-filter:blur(12px);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid #f3dfe8}
+.bb-product-back,.bb-product-cart{width:42px;height:42px;border:0;border-radius:50%;background:#fff0f6;color:#70485c;font-size:24px}
+.bb-product-brand{font-family:Georgia,serif;color:#d36f99;font-size:20px;font-style:italic;font-weight:700}
+.bb-gallery-main{position:relative;background:#f6edf1;aspect-ratio:4/5;overflow:hidden}
+.bb-gallery-main img{width:100%;height:100%;object-fit:cover}
+.bb-gallery-arrow{position:absolute;top:48%;width:42px;height:42px;border:0;border-radius:50%;background:#fffffff0;font-size:25px;color:#6f4a5c;box-shadow:0 4px 16px #0002}
+.bb-gallery-prev{left:12px}.bb-gallery-next{right:12px}
+.bb-thumbs{display:flex;gap:9px;overflow:auto;padding:11px 14px;background:white}
+.bb-thumb{width:68px;height:78px;object-fit:cover;border-radius:11px;border:2px solid transparent;flex:0 0 auto}
+.bb-thumb.active{border-color:#e56598}
+.bb-product-body{padding:16px 18px 28px;background:white}
+.bb-product-title{font-family:Georgia,serif;color:#4f3441;font-size:25px;margin:0 0 6px}
+.bb-product-price{font-size:27px;font-weight:900;color:#dc5d8f}
+.bb-product-badge{display:inline-block;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800;margin:10px 0}
+.bb-option-title{font-weight:800;color:#5e4150;margin:18px 0 9px}
+.bb-size-row{display:flex;gap:8px;flex-wrap:wrap}
+.bb-size{min-width:52px;padding:10px 13px;border:1px solid #ead7df;border-radius:10px;background:white;color:#624554;font-weight:800}
+.bb-size.selected{border-color:#e56598;background:#fff0f6;color:#cf4f82}
+.bb-qty{display:flex;align-items:center;width:max-content;border:1px solid #eadde3;border-radius:12px;overflow:hidden}
+.bb-qty button{width:43px;height:40px;border:0;background:#f8f2f5;font-size:20px}.bb-qty span{width:48px;text-align:center;font-weight:800}
+.bb-add{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(calc(100% - 34px),646px);z-index:62010;border:0;border-radius:18px;padding:16px;background:linear-gradient(135deg,#ef6e9d,#df5b8d);color:white;font-size:17px;font-weight:900;box-shadow:0 10px 28px #c9548055}
+.bb-desc{border-top:1px solid #f0e0e7;margin-top:20px;padding-top:17px;color:#765d69;line-height:1.55}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://ewxsdbupanflituuiqsm.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_BoFJUqyzMHj90I-md8WfFA_Pa8gCqA_";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+</script></head>
+
+<body><header class="top"><div class="topin"><button class="round" id="mainMenuButton" aria-label="Abrir menú">☰</button><div class="brand"><div class="logo">Blessed Beauty</div><div class="sub">BEAUTY • STYLE • FAITH ✝️</div></div><button class="round" id="topCart">🛍️</button></div></header><main class="page"><div class="searcharea"><div class="search">🔎 <input id="searchProducts" placeholder="Buscar productos..."></div></div><section class="hero"><div class="heroCard"><div class="kicker">NUEVA COLECCIÓN ✨</div><h1>Tu belleza también es un propósito ♡</h1><p>Moda, belleza y detalles elegidos especialmente para ti.</p><button id="shopNow">Ver productos</button></div></section><section class="section" id="categories"><div class="title"><h2>Categorías</h2><span class="small">Explorar</span></div><div class="cats"><div class="cat" data-cat="SHEIN"><span>👗</span>SHEIN</div><div class="cat" data-cat="Maquillaje"><span>💄</span>Maquillaje</div><div class="cat" data-cat="Carteras"><span>👜</span>Carteras</div><div class="cat" data-cat="Accesorios"><span>💎</span>Accesorios</div><div class="cat" data-cat="Hogar"><span>🏡</span>Hogar</div><div class="cat" data-cat="Encargos"><span>📦</span>Encargos</div></div></section><section class="section" id="products"><div class="title"><h2>Productos destacados</h2><span class="small">Para ti 💕</span></div><div id="products-container"><p>Cargando productos...</p></div></section><section class="custom" id="orders"><h2>¿Quieres algo de otra tienda? 📦</h2><p>Podemos ayudarte con encargos de SHEIN, Amazon, Temu y otras tiendas online.</p><button id="customOrder">Hacer un encargo 💕</button><button id="myOrdersButton" style="margin-left:7px;">Mis pedidos 🧾</button></section><section id="adminAccess"><button class="button" id="adminButton">⚙️ Administración</button></section></main><footer>🎀 BLESSED BEAUTY 💖<br>Calidad • Confianza • Seguridad • Fe<br>✝️ Con Dios todo es posible.</footer><nav class="nav"><button class="active" id="homeNav"><span>⌂</span>Inicio</button><button id="catNav"><span>♡</span>Categorías</button><button id="orderNav"><span>📦</span>Encargos</button><button id="cartNav"><span>🛍️</span>Carrito</button><button id="adminNav"><span>♙</span>Admin</button></nav><script>
+async function loadProducts() {
+  const container = document.getElementById("products-container");
+
+  try {
+    const { data, error } = await supabaseClient
+      .from("products")
+      .select("*");
+
+    if (error) throw error;
+
+    if (!data || data.length === 0) {
+      container.innerHTML = "<p>No hay productos disponibles todavía.</p>";
+      return;
+    }
+
+    window.blessedBeautyProducts = data;
+
+    const getMode = (product) => {
+      const raw = String(product.sizes || "");
+      if (raw.startsWith("__stock__|")) return "stock";
+      if (raw.startsWith("__order__|")) return "order";
+      return raw.trim() ? "order" : "stock";
+    };
+
+    const stockProducts = data.filter(p => getMode(p) === "stock");
+    const orderProducts = data.filter(p => getMode(p) === "order");
+
+    const renderCards = (products) => products.map(product => {
+      const mode = getMode(product);
+      const badge = mode === "stock" ? "🟢 Disponible ahora" : "📦 Por encargo";
+      return `
+        <div class="product" data-product-id="${product.id}">
+          <div class="product-image">
+            ${product.image_url
+              ? `<img src="${product.image_url}" alt="${product.name || "Producto"}" style="width:100%;height:100%;object-fit:cover;border-radius:20px;">`
+              : "🛍️"}
+          </div>
+          <div class="product-info">
+            <div style="font-size:12px;font-weight:800;color:${mode === "stock" ? "#3d8b62" : "#b05b82"};margin-bottom:7px;">${badge}</div>
+            <h3>${product.name || "Producto"}</h3>
+            <div class="price">$${product.price || "Consultar"}</div>
+            <button class="button">Ver producto</button>
+          </div>
+        </div>`;
+    }).join("");
+
+    container.className = "";
+    container.innerHTML = `
+      ${stockProducts.length ? `<div style="margin-bottom:28px;"><h2 style="color:#8f4d6d;margin-bottom:14px;">🛍️ Disponibles ahora</h2><div class="products">${renderCards(stockProducts)}</div></div>` : ""}
+      ${orderProducts.length ? `<div><h2 style="color:#8f4d6d;margin-bottom:14px;">📦 Por encargo</h2><div class="products">${renderCards(orderProducts)}</div></div>` : ""}
+    `;
+
+  } catch (error) {
+    console.error("Error cargando productos:", error);
+    container.innerHTML = "<p>No se pudieron cargar los productos.</p>";
+  }
+}
+
+loadProducts();
+</script>
+ <script>
+document.addEventListener("click", function(event) {
+  const button = event.target.closest(".product .button");
+  if (!button) return;
+  const card=button.closest(".product"), productId=card?.dataset.productId;
+  const p=(window.blessedBeautyProducts||[]).find(x=>String(x.id)===String(productId));
+  if(!p)return;
+  const name=p.name||"Producto", numericPrice=Number(p.price)||0, raw=String(p.sizes||"");
+  const productMode=raw.startsWith("__stock__|")?"stock":(raw.startsWith("__order__|")?"order":(raw.trim()?"order":"stock"));
+  let stockSize="",stockQty=1,sizes=[];
+  if(productMode==="stock"&&raw.startsWith("__stock__|")){const z=raw.split("|");stockSize=z[1]||"";stockQty=Math.max(0,Number(z[2])||0)}
+  else sizes=raw.replace("__order__|","").split(",").map(s=>s.trim()).filter(Boolean);
+  let images=Array.isArray(p.images)?p.images.filter(Boolean):[];
+  if(!images.length&&p.image_url)images=[p.image_url];
+  let photo=0,selectedSize="",qty=1;
+  const page=document.createElement("div");page.className="bb-product-page";
+  const thumbs=images.map((u,i)=>`<img class="bb-thumb ${i===0?"active":""}" data-photo="${i}" src="${u}" alt="">`).join("");
+  page.innerHTML=`<div class="bb-product-wrap">
+   <div class="bb-product-top"><button class="bb-product-back">‹</button><div class="bb-product-brand">Blessed Beauty ♡</div><button class="bb-product-cart">🛍️</button></div>
+   ${images.length?`<div class="bb-gallery-main"><img id="bbMainPhoto" src="${images[0]}" alt="${name}">${images.length>1?`<button class="bb-gallery-arrow bb-gallery-prev">‹</button><button class="bb-gallery-arrow bb-gallery-next">›</button>`:""}</div><div class="bb-thumbs">${thumbs}</div>`:`<div class="bb-gallery-main" style="display:grid;place-items:center;font-size:90px">🛍️</div>`}
+   <div class="bb-product-body"><h1 class="bb-product-title">${name}</h1><div class="bb-product-price">$${numericPrice.toFixed(2)}</div>
+   <div class="bb-product-badge" style="background:${productMode==="stock"?"#e3f8ea":"#ffe9f1"};color:${productMode==="stock"?"#267049":"#9d496a"}">${productMode==="stock"?"✓ Disponible ahora":"📦 Por encargo"}</div>
+   ${productMode==="order"&&sizes.length?`<div class="bb-option-title">Talla:</div><div class="bb-size-row">${sizes.map(s=>`<button class="bb-size" data-size="${s}">${s}</button>`).join("")}</div>`:""}
+   ${productMode==="stock"?`<div class="bb-option-title">Disponibilidad:</div><div style="color:#347653;font-weight:800">${stockSize?`Talla ${stockSize} · `:""}${stockQty?`${stockQty} disponible${stockQty===1?"":"s"}`:"Agotado"}</div>`:""}
+   <div class="bb-option-title">Cantidad:</div><div class="bb-qty"><button id="bbMinus">−</button><span id="bbQty">1</span><button id="bbPlus">+</button></div>
+   ${p.description?`<div class="bb-desc"><b style="color:#523946;font-size:17px">Descripción</b><div style="margin-top:7px">${p.description}</div></div>`:""}
+   </div></div>
+   <button class="bb-add" ${productMode==="stock"&&stockQty<=0?"disabled style='background:#bbb'":""}>🛍️ ${productMode==="order"?"Agregar encargo":"Agregar a Mi pedido"}</button>`;
+  document.body.appendChild(page);document.body.style.overflow="hidden";
+  const close=()=>{page.remove();document.body.style.overflow=""};
+  page.querySelector(".bb-product-back").onclick=close;
+  page.querySelector(".bb-product-cart").onclick=()=>{close();document.getElementById("topCart")?.click()};
+  const show=i=>{if(!images.length)return;photo=(i+images.length)%images.length;page.querySelector("#bbMainPhoto").src=images[photo];page.querySelectorAll(".bb-thumb").forEach((t,j)=>t.classList.toggle("active",j===photo))};
+  page.querySelector(".bb-gallery-prev")?.addEventListener("click",()=>show(photo-1));
+  page.querySelector(".bb-gallery-next")?.addEventListener("click",()=>show(photo+1));
+  page.querySelectorAll(".bb-thumb").forEach(t=>t.onclick=()=>show(Number(t.dataset.photo)));
+  page.querySelectorAll(".bb-size").forEach(b=>b.onclick=()=>{selectedSize=b.dataset.size;page.querySelectorAll(".bb-size").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")});
+  page.querySelector("#bbMinus").onclick=()=>{qty=Math.max(1,qty-1);page.querySelector("#bbQty").textContent=qty};
+  page.querySelector("#bbPlus").onclick=()=>{const max=productMode==="stock"?stockQty:99;qty=Math.min(max,qty+1);page.querySelector("#bbQty").textContent=qty};
+  page.querySelector(".bb-add").onclick=()=>{
+    if(productMode==="order"&&sizes.length&&!selectedSize){alert("📏 Selecciona una talla.");return}
+    const chosen=productMode==="stock"?stockSize:selectedSize;
+    let cart=JSON.parse(localStorage.getItem("blessedBeautyCart"))||[];
+    const existing=cart.find(x=>x.name===name&&(x.size||"")===chosen&&(x.mode||"stock")===productMode);
+    const already=existing?.quantity||0;
+    if(productMode==="stock"&&already+qty>stockQty){alert(`🛍️ Solo hay ${stockQty} disponible${stockQty===1?"":"s"}.`);return}
+    if(existing)existing.quantity+=qty;else cart.push({name,price:numericPrice,image:images[0]||p.image_url||"",size:chosen,mode:productMode,maxQty:productMode==="stock"?stockQty:null,quantity:qty});
+    localStorage.setItem("blessedBeautyCart",JSON.stringify(cart));
+    alert(`💖 ${qty} ${qty===1?"producto agregado":"productos agregados"} a Mi pedido`);
+  };
+});
+
+  document.getElementById("closeManageProducts").onclick = function() {
+    manageModal.remove();
+  };
+document.querySelectorAll(".editAdminProduct").forEach(button => {
+  button.onclick = function() {
+    const productId = this.dataset.id;
+    const product = products.find(p => String(p.id) === String(productId));
+
+    if (!product) return;
+
+    const editModal = document.createElement("div");
+
+    editModal.style.cssText = `
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:50000;
+      padding:20px;
+    `;
+
+    editModal.innerHTML = `
+      <div style="
+        background:white;
+        width:100%;
+        max-width:430px;
+        max-height:90vh;
+        overflow-y:auto;
+        border-radius:25px;
+        padding:25px;
+      ">
+        <h2 style="text-align:center;color:#d95b91;">
+          ✏️ Editar producto
+        </h2>
+<label>📸 Agregar/reemplazar fotos <small style="color:#9a7184;">(puedes elegir varias)</small></label>
+<input id="editProductImage" type="file" accept="image/*" multiple
+  style="width:100%;padding:12px;margin:8px 0 15px;">
+        <label>Nombre</label>
+        <input id="editProductName"
+          value="${product.name || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Precio ($)</label>
+        <input id="editProductPrice"
+          type="number"
+          step="0.01"
+          value="${product.price || ""}"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+
+        <label>Categoría</label>
+        <select id="editProductCategory"
+          style="width:100%;padding:12px;margin:8px 0 15px;">
+          <option value="SHEIN">SHEIN</option>
+          <option value="Maquillaje">Maquillaje</option>
+          <option value="Carteras">Carteras</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Encargos">Encargos</option>
+        </select>
+
+        <label>Tipo de producto</label>
+        <select id="editProductType" style="width:100%;padding:12px;margin:8px 0 15px;">
+          <option value="stock">🛍️ Disponible ahora</option>
+          <option value="order">📦 Por encargo</option>
+        </select>
+
+        <div id="editStockFields">
+          <label>Talla disponible</label>
+          <input id="editStockSize" placeholder="Ej: M" style="width:100%;padding:12px;margin:8px 0 15px;">
+          <label>Cantidad disponible</label>
+          <input id="editStockQty" type="number" min="0" step="1" value="1" style="width:100%;padding:12px;margin:8px 0 15px;">
+        </div>
+
+        <div id="editOrderFields">
+          <label>Tallas que puede elegir la clienta</label>
+          <input id="editProductSizes" placeholder="Ej: S, M, L, XL" style="width:100%;padding:12px;margin:8px 0 15px;">
+        </div>
+
+        <label>Descripción</label>
+        <textarea id="editProductDescription"
+          style="width:100%;padding:12px;margin:8px 0 15px;"
+        >${product.description || ""}</textarea>
+
+        <button id="saveProductChanges" class="button"
+          style="width:100%;">
+          💖 Guardar cambios
+        </button>
+
+        <button id="cancelProductEdit"
+          style="
+            width:100%;
+            margin-top:12px;
+            background:#f3c4d8;
+            color:#7b4563;
+            border:none;
+            border-radius:15px;
+            padding:14px;
+            font-size:16px;
+            font-weight:bold;
+          ">
+          Cancelar
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(editModal);
+
+    document.getElementById("editProductCategory").value =
+      product.category || "SHEIN";
+
+    const editRawSizes = String(product.sizes || "");
+    const editIsStock = editRawSizes.startsWith("__stock__|") || !editRawSizes.trim();
+    const editParts = editRawSizes.split("|");
+    document.getElementById("editProductType").value = editIsStock ? "stock" : "order";
+    document.getElementById("editStockSize").value = editRawSizes.startsWith("__stock__|") ? (editParts[1] || "") : "";
+    document.getElementById("editStockQty").value = editRawSizes.startsWith("__stock__|") ? (editParts[2] || 0) : 1;
+    document.getElementById("editProductSizes").value = editRawSizes.replace("__order__|", "");
+    const syncEditFields = () => {
+      const isStock = document.getElementById("editProductType").value === "stock";
+      document.getElementById("editStockFields").style.display = isStock ? "block" : "none";
+      document.getElementById("editOrderFields").style.display = isStock ? "none" : "block";
+    };
+    document.getElementById("editProductType").onchange = syncEditFields;
+    syncEditFields();
+
+    document.getElementById("cancelProductEdit").onclick = function() {
+      editModal.remove();
+    };
+
+    document.getElementById("saveProductChanges").onclick = async function() {
+      const saveButton = this;
+      saveButton.disabled = true;
+      saveButton.textContent = "⏳ Guardando...";
+      const newImageFiles = Array.from(document.getElementById("editProductImage").files);
+let newImageUrl = product.image_url;
+let newImages = Array.isArray(product.images) && product.images.length ? product.images : (product.image_url ? [product.image_url] : []);
+
+if (newImageFiles.length) {
+  newImages = [];
+  for (let i = 0; i < newImageFiles.length; i++) {
+    const newImageFile = newImageFiles[i];
+    const fileName = `${Date.now()}-${i}-${newImageFile.name.replace(/\s+/g, "-")}`;
+    const { error: uploadError } = await supabaseClient.storage.from("product-images").upload(fileName, newImageFile);
+    if (uploadError) {
+      alert("❌ No se pudo subir una foto: " + uploadError.message);
+      saveButton.disabled = false;
+      saveButton.textContent = "💖 Guardar cambios";
+      return;
+    }
+    const { data: publicUrlData } = supabaseClient.storage.from("product-images").getPublicUrl(fileName);
+    newImages.push(publicUrlData.publicUrl);
+  }
+  newImageUrl = newImages[0];
+}
+
+      const { error } = await supabaseClient
+        .from("products")
+        .update({
+          name: document.getElementById("editProductName").value.trim(),
+          price: Number(document.getElementById("editProductPrice").value),
+          category: document.getElementById("editProductCategory").value,
+          sizes: document.getElementById("editProductType").value === "stock"
+            ? `__stock__|${document.getElementById("editStockSize").value.trim()}|${Math.max(0, Number(document.getElementById("editStockQty").value) || 0)}`
+            : `__order__|${document.getElementById("editProductSizes").value.trim()}`,
+          description: document.getElementById("editProductDescription").value.trim(),
+          image_url: newImageUrl,
+          images: newImages
+        })
+        .eq("id", product.id);
+
+      if (error) {
+        alert("❌ No se pudo editar: " + error.message);
+        saveButton.disabled = false;
+        saveButton.textContent = "💖 Guardar cambios";
+        return;
+      }
+
+      alert("💖 Producto actualizado correctamente");
+      editModal.remove();
+      manageModal.remove();
+      loadProducts();
+    };
+  };
+});
+ 
+  
+  document.getElementById("closeAdminPanel").onclick = function() { adminModal.remove(); document.body.style.overflow = ""; };
+
+};
+}
+</script>
+<script>(function(){function cart(){const b=[...document.querySelectorAll("button")].find(x=>x.textContent.trim()==="🛒 Mi carrito");if(b)b.click()}function filter(q){q=(q||"").toLowerCase();document.querySelectorAll("#products-container .product").forEach(c=>{const p=(window.blessedBeautyProducts||[]).find(x=>String(x.id)===String(c.dataset.productId));const s=[p?.name,p?.category,p?.description].filter(Boolean).join(" ").toLowerCase();c.style.display=!q||s.includes(q)?"":"none"})}document.getElementById("searchProducts")?.addEventListener("input",e=>filter(e.target.value));document.querySelectorAll(".cat").forEach(c=>c.onclick=()=>window.openBlessedCategory(c.dataset.cat));document.getElementById("shopNow").onclick=()=>document.getElementById("products").scrollIntoView({behavior:"smooth"});document.getElementById("topCart").onclick=cart;document.getElementById("cartNav").onclick=cart;document.getElementById("adminNav").onclick=()=>document.getElementById("adminButton").click();document.getElementById("homeNav").onclick=()=>scrollTo({top:0,behavior:"smooth"});document.getElementById("catNav").onclick=()=>window.openBlessedCategories();document.getElementById("orderNav").onclick=()=>document.getElementById("orders").scrollIntoView({behavior:"smooth"});document.getElementById("customOrder").onclick=()=>window.open("https://wa.me/5359304384?text="+encodeURIComponent("🎀 Hola, quiero hacer un encargo especial en Blessed Beauty."),"_blank");document.getElementById("myOrdersButton").onclick=async()=>{const tokens=JSON.parse(localStorage.getItem("blessedBeautyOrderTokens")||"[]");const modal=document.createElement("div");modal.style.cssText="position:fixed;inset:0;background:#fff9fc;z-index:75000;overflow:auto;padding:18px 16px 90px;";modal.innerHTML=`<div style="max-width:620px;margin:auto;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><button id="closeMyOrders" style="width:43px;height:43px;border:0;border-radius:50%;background:#fff0f6;color:#7b405d;font-size:24px;">‹</button><div><h2 style="font-family:Georgia,serif;color:#743e59;margin:0;">Mis pedidos 🧾</h2><small style="color:#9a7184;">Seguimiento de tus compras</small></div></div><div id="myOrdersContent"><div style="background:white;border-radius:20px;padding:25px;text-align:center;color:#8d6579;">⏳ Cargando...</div></div></div>`;document.body.appendChild(modal);document.getElementById("closeMyOrders").onclick=()=>modal.remove();const box=document.getElementById("myOrdersContent");if(!tokens.length){box.innerHTML='<div style="background:white;border:1px solid #f0d7e2;border-radius:20px;padding:25px;text-align:center;color:#8d6579;">🎀 Todavía no hay pedidos guardados en este dispositivo.<br><small>Los próximos pedidos aparecerán aquí automáticamente.</small></div>';return;}const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));const found=[];for(const token of tokens){const {data,error}=await supabaseClient.rpc("get_public_order_status",{p_token:token});if(!error&&data?.length)found.push(...data);}const colors={"Nuevo":["#fff1c7","#8a6500"],"Confirmado":["#dff1ff","#22658c"],"En preparación":["#f4e5ff","#74489a"],"Listo":["#dff8e8","#25704a"],"Entregado":["#e8f7ee","#277052"],"Cancelado":["#ffe2e2","#a13e3e"]};box.innerHTML=found.length?`<div style="display:flex;flex-direction:column;gap:12px;">${found.map(o=>{const c=colors[o.status]||["#f3edf0","#70485c"];const items=Array.isArray(o.items)?o.items:[];return `<div style="background:white;border:1px solid #f0d7e2;border-radius:22px;padding:17px;"><div style="display:flex;justify-content:space-between;gap:10px;"><div><b style="color:#743e59;font-size:17px;">Pedido #${o.id}</b><div style="font-size:11px;color:#9a7184;margin-top:4px;">${o.created_at?new Date(o.created_at).toLocaleString("es"):""}</div></div><span style="height:max-content;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:900;background:${c[0]};color:${c[1]};">${esc(o.status)}</span></div><div style="background:#fff6fa;border-radius:14px;padding:11px;margin-top:13px;font-size:13px;line-height:1.55;">${items.map(i=>`• <b>${esc(i.name)}</b> × ${Number(i.quantity||1)}${i.size?` · Talla ${esc(i.size)}`:""}`).join("<br>")||"Sin detalle de productos"}</div><div style="text-align:right;margin-top:12px;color:#d65f92;font-weight:900;font-size:18px;">$${Number(o.total||0).toFixed(2)}</div></div>`}).join("")}</div>`:'<div style="background:white;border-radius:20px;padding:25px;text-align:center;color:#8d6579;">No pudimos encontrar pedidos guardados.</div>';};})();</script>
+<script>
+(function(){
+ const btn=document.getElementById("mainMenuButton");
+ if(!btn)return;
+ const overlay=document.createElement("div");
+ overlay.className="bb-menu-overlay";
+ overlay.innerHTML=`<aside class="bb-side-menu" role="dialog" aria-label="Menú principal">
+   <div class="bb-menu-head"><button class="bb-menu-close" aria-label="Cerrar">✕</button><div class="bb-menu-logo">🎀 Blessed Beauty ✝️</div><div class="bb-menu-tag">BEAUTY • STYLE • FAITH</div></div>
+   <div class="bb-menu-links">
+    <button class="bb-menu-link" data-bb-action="home"><span class="bb-menu-icon">🏠</span>Inicio</button>
+    <button class="bb-menu-link" data-bb-action="categories"><span class="bb-menu-icon">♡</span>Categorías</button>
+    <button class="bb-menu-link" data-bb-action="cart"><span class="bb-menu-icon">🛍️</span>Mi pedido</button>
+    <button class="bb-menu-link" data-bb-action="myorders"><span class="bb-menu-icon">🧾</span>Mis pedidos</button>
+    <button class="bb-menu-link" data-bb-action="custom"><span class="bb-menu-icon">📦</span>Hacer un encargo</button>
+    <div class="bb-menu-admin"><button class="bb-menu-link" data-bb-action="admin"><span class="bb-menu-icon">🔐</span>Administración</button></div>
+   </div>
+   <div class="bb-menu-faith">“Con Dios todo es posible.” ✝️</div>
+ </aside>`;
+ document.body.appendChild(overlay);
+ const close=()=>{overlay.classList.remove("open");document.body.style.overflow=""};
+ const open=()=>{overlay.classList.add("open");document.body.style.overflow="hidden"};
+ btn.onclick=open;
+ overlay.querySelector(".bb-menu-close").onclick=close;
+ overlay.addEventListener("click",e=>{if(e.target===overlay)close()});
+ overlay.querySelectorAll("[data-bb-action]").forEach(b=>b.onclick=()=>{
+   const a=b.dataset.bbAction;close();
+   if(a==="home")window.scrollTo({top:0,behavior:"smooth"});
+   if(a==="categories")window.openBlessedCategories?.();
+   if(a==="cart")document.getElementById("topCart")?.click();
+   if(a==="myorders")document.getElementById("myOrdersButton")?.click();
+   if(a==="custom")document.getElementById("customOrder")?.click();
+   if(a==="admin"){
+     const adminBtn=[...document.querySelectorAll("button")].find(x=>/admin/i.test(x.textContent||""));
+     if(adminBtn)adminBtn.click();
+   }
+ });
+})();
+</script>
+<script>
+(function(){
+const meta={"SHEIN":["👗","Moda y tendencias SHEIN"],"Maquillaje":["💄","Belleza para resaltar tu estilo"],"Carteras":["👜","Carteras y bolsos para ti"],"Accesorios":["💎","Detalles que completan tu look"],"Hogar":["🏡","Detalles bonitos para tu hogar"]};
+const mode=p=>{const r=String(p?.sizes||"");return r.startsWith("__stock__|")?"stock":r.startsWith("__order__|")?"order":(r.trim()?"order":"stock")};
+const cards=ps=>ps.map(p=>`<div class="product"><div class="product-image">${p.image_url?`<img src="${p.image_url}" alt="">`:"🛍️"}</div><div class="product-info"><div style="font-size:12px;font-weight:800;color:${mode(p)==="stock"?"#3d8b62":"#b05b82"};margin-bottom:7px;">${mode(p)==="stock"?"🟢 Disponible ahora":"📦 Por encargo"}</div><h3>${p.name||"Producto"}</h3><div class="price">$${Number(p.price||0).toFixed(2)}</div><button class="button" data-bb-open="${p.id}">Ver producto</button></div></div>`).join("");
+window.openBlessedCategory=function(cat){
+ if(cat==="Encargos"){document.getElementById("orders").scrollIntoView({behavior:"smooth"});return}
+ const m=meta[cat]||["🎀","Productos para ti"],ps=(window.blessedBeautyProducts||[]).filter(p=>String(p.category||"").trim().toLowerCase()===cat.toLowerCase()),stock=ps.filter(p=>mode(p)==="stock"),order=ps.filter(p=>mode(p)==="order");
+ const x=document.createElement("div");x.style.cssText="position:fixed;inset:0;background:#fff9fc;z-index:65000;overflow:auto;padding-bottom:90px";
+ x.innerHTML=`<div style="max-width:1050px;margin:auto"><div style="position:sticky;top:0;z-index:3;background:#fff9fcf2;backdrop-filter:blur(14px);padding:14px 17px;border-bottom:1px solid #f1d8e4;display:flex;align-items:center;gap:12px"><button id="bbCatBack" style="width:43px;height:43px;border:0;border-radius:50%;background:#fff0f6;color:#7b405d;font-size:24px">‹</button><div><h2 style="font-family:Georgia,serif;color:#743e59;margin:0">${m[0]} ${cat}</h2><small style="color:#9a7184">${ps.length} producto${ps.length===1?"":"s"} · ${m[1]}</small></div></div><div style="padding:20px 17px">${!ps.length?`<div style="background:white;border:1px solid #f0d7e2;border-radius:24px;padding:35px 20px;text-align:center;color:#8d6579"><div style="font-size:48px">${m[0]}</div><b style="color:#743e59">Próximamente 💕</b><p>Todavía no hay productos en esta categoría.</p></div>`:""}${stock.length?`<div style="margin-bottom:28px"><h2 style="font-family:Georgia,serif;color:#743e59">🛍️ Disponibles ahora</h2><div class="products">${cards(stock)}</div></div>`:""}${order.length?`<div><h2 style="font-family:Georgia,serif;color:#743e59">📦 Por encargo</h2><div class="products">${cards(order)}</div></div>`:""}</div></div>`;
+ document.body.appendChild(x);document.body.style.overflow="hidden";x.querySelector("#bbCatBack").onclick=()=>{x.remove();document.body.style.overflow=""};
+ x.querySelectorAll("[data-bb-open]").forEach(b=>b.onclick=()=>{const original=document.querySelector(`.product[data-product-id="${b.dataset.bbOpen}"] .button`);if(original)original.click()})
+};
+window.openBlessedCategories=function(){
+ const cats=["SHEIN","Maquillaje","Carteras","Accesorios","Hogar"],x=document.createElement("div");x.style.cssText="position:fixed;inset:0;background:#fff9fc;z-index:64000;overflow:auto;padding-bottom:90px";
+ x.innerHTML=`<div style="max-width:760px;margin:auto;padding:0 17px 35px"><div style="position:sticky;top:0;background:#fff9fcf2;backdrop-filter:blur(14px);padding:16px 0 13px;border-bottom:1px solid #f1d8e4;display:flex;align-items:center;gap:12px"><button id="bbCatsBack" style="width:43px;height:43px;border:0;border-radius:50%;background:#fff0f6;color:#7b405d;font-size:24px">‹</button><div><h2 style="font-family:Georgia,serif;color:#743e59;margin:0">Categorías ♡</h2><small style="color:#9a7184">Encuentra justo lo que buscas 🎀</small></div></div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:20px">${cats.map(c=>{const n=(window.blessedBeautyProducts||[]).filter(p=>String(p.category||"").toLowerCase()===c.toLowerCase()).length;return `<button data-bb-cat="${c}" style="border:1px solid #f0d7e2;background:white;border-radius:24px;padding:23px 14px;color:#70485c"><span style="display:block;font-size:42px;margin-bottom:10px">${meta[c][0]}</span><b style="display:block;font-family:Georgia,serif;font-size:18px;color:#743e59">${c}</b><small style="display:block;margin-top:6px;color:#a06e86">${n} producto${n===1?"":"s"}</small></button>`}).join("")}<button id="bbSpecial" style="grid-column:1/-1;border:0;background:linear-gradient(135deg,#f5bfd4,#df82aa);border-radius:24px;padding:20px;color:white;text-align:left"><span style="font-size:30px">📦</span><b style="display:block;font-family:Georgia,serif;font-size:19px;margin-top:7px">Encargos especiales</b><small>SHEIN, Amazon, Temu y otras tiendas online</small></button></div></div>`;
+ document.body.appendChild(x);document.body.style.overflow="hidden";const close=()=>{x.remove();document.body.style.overflow=""};x.querySelector("#bbCatsBack").onclick=close;x.querySelectorAll("[data-bb-cat]").forEach(b=>b.onclick=()=>{const c=b.dataset.bbCat;close();window.openBlessedCategory(c)});x.querySelector("#bbSpecial").onclick=()=>{close();document.getElementById("orders").scrollIntoView({behavior:"smooth"})}
+};
+})();
+</script>
+</body>
+</html>
