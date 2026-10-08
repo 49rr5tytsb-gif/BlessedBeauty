@@ -1,0 +1,18 @@
+{
+  "name": "Blessed Beauty",
+  "short_name": "Blessed Beauty",
+  "description": "Belleza, estilo y fe",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff9fc",
+  "theme_color": "#f8b6d2",
+  "icons": [
+    {
+      "src": "./blessed-beauty-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
